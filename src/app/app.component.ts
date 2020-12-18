@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularTemplate';
+  counter=1
+  addCount=(evt)=>{
+    this.counter++;
+  }
+  add = function(){
+    this.counter=this.counter+2;
+  }
 }
