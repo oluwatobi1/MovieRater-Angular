@@ -2,5 +2,15 @@
 
 <h1>the count is {{counter}}</h1>
 
-<button (click)="addCount($event)"> add counter</button>
-<button (click)="add()"> Add</button>
+<input type="text" [ngModel]="counter">
+
+
+<div *ngIf="counter%2==0">
+    <h5>Even set</h5>
+</div>
+<h5 *ngFor="let person of people">
+    {{ person.name }} is here
+
+</h5>
+<button (click)="addCount()"> add counter</button>
+<button (click)="add()"> Add X2</button>

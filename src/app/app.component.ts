@@ -8,7 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AngularTemplate';
   counter=1
-  addCount=(evt)=>{
+  people = [
+    {name:"Jannet", age:15},
+    {name:"Raamon", age:14},
+    {name:"slamon", age:24},
+    
+  ];
+
+
+  addCount=()=>{
     this.counter++;
   }
   add = function(){
