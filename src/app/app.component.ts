@@ -14,6 +14,7 @@ export class AppComponent implements OnInit{
     {name:"slamon", age:24},
     
   ];
+  mycolor = 'purple';
 
 
   addCount=()=>{
