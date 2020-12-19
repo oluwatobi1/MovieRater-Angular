@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PeopleService } from './people.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,15 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit{
   title = 'AngularTemplate';
   counter=1
-  people = [
-    {name:"Jannet", age:15},
-    {name:"Raamon", age:14},
-    {name:"slamon", age:24},
-    
-  ];
   mycolor = 'purple';
+  people = [];
 
-
+  constructor(private peopleServ:PeopleService){}
   addCount=()=>{
     this.counter++;
   }
@@ -24,6 +21,7 @@ export class AppComponent implements OnInit{
     this.counter=this.counter+2;
   }
   ngOnInit(){
+    this.people = this.peopleServ.arrowpeople()
     console.log("Instantiated");
     
   }
