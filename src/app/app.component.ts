@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'AngularTemplate';
   counter=1
   people = [
@@ -22,4 +22,9 @@ export class AppComponent {
   add = function(){
     this.counter=this.counter+2;
   }
+  ngOnInit(){
+    console.log("Instantiated");
+    
+  }
+  
 }
