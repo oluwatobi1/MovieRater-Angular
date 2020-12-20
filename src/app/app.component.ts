@@ -12,7 +12,9 @@ export class AppComponent implements OnInit{
   counter=1
   mycolor = 'purple';
   people = [];
-
+  today = new Date;
+  money = 69;
+  
   constructor(private peopleServ:PeopleService){}
   addCount=()=>{
     this.counter++;
