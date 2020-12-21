@@ -24,8 +24,19 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(){
     this.people = this.peopleServ.arrowpeople()
-    console.log("Instantiated");
-    
+    console.log("Instantiated");    
+    this.peopleServ.anObservable$.subscribe(
+      data=>{
+        console.log('From the Obser', data);
+        
+      },
+      error=>{
+        console.log("error");
+        
+
+      }
+    )
   }
+
   
 }
