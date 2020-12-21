@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { PeopleService } from './people.service';
 import { FirstComponent } from './first/first.component';
-import { SecondComponent } from './second/second.component'
+import { SecondComponent } from './second/second.component';
+import { ChildComponent } from './child/child.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,

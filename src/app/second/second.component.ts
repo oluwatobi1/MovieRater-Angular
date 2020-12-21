@@ -9,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SecondComponent implements OnInit {
 
+  myItem = "Computer"
+
   constructor(
     private route:ActivatedRoute,
     private locate:Location) { }
