@@ -10,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class SecondComponent implements OnInit {
 
   myItem = "Computer"
+  cItem;
 
   constructor(
     private route:ActivatedRoute,
@@ -22,6 +23,9 @@ export class SecondComponent implements OnInit {
 
   backFn(){
     this.locate.back()
+  }
+  reciever = (event) =>{
+    this.cItem = event
   }
 
 }
