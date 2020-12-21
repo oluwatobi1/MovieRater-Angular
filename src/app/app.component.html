@@ -2,6 +2,13 @@
 
 <h1 [ngStyle]="{'background-color':mycolor}">the count is {{counter}}</h1>
 
+<nav>
+    <a routerLink="first">First</a>
+    <br>
+    <a routerLink="second">Second</a>
+</nav>
+ <router-outlet></router-outlet>
+
 <!-- <input type="text" [ngModel]="counter">
 
 
@@ -22,7 +29,4 @@
 <h4>{{ today | date}}</h4>
 <h4>{{ money | currency:"EUR"}}</h4>
  -->
-
-
- <router-outlet></router-outlet>
 
