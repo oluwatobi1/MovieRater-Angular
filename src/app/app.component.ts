@@ -10,7 +10,7 @@ import { PeopleService } from './people.service';
 export class AppComponent implements OnInit{
   title = 'AngularTemplate';
   counter=1
-  mycolor = 'purple';
+  mycolor = 'grey';
   people = [];
   today = new Date;
   money = 69;
