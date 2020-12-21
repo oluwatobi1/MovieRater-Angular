@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { PeopleService } from './people.service';
 import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component'
@@ -18,7 +18,10 @@ import { SecondComponent } from './second/second.component'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
+       
+
   ],
   providers: [PeopleService],
   bootstrap: [AppComponent]

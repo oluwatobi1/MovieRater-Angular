@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-first',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstComponent implements OnInit {
 
+  ourForm = new FormGroup({
+    name: new FormControl(''),
+    surname: new FormControl('')
+  })
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+  sendForm(){
+    console.log(this.ourForm.value);
+    
   }
 
 }
