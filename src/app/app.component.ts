@@ -8,19 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit{
   title = 'AngularTemplate';
-  counter=1
-  mycolor = 'grey';
-  people = [];
-  today = new Date;
-  money = 69;
   
   constructor(){}
-  addCount=()=>{
-    this.counter++;
-  }
-  add = function(){
-    this.counter=this.counter+2;
-  }
+  
   ngOnInit(){
 
   }
