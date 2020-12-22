@@ -22,7 +22,7 @@ const routes: Routes=[
     ReactiveFormsModule,
     AuthModule,
     MainModule,
-    RouterModule.forChild(routes) 
+    RouterModule.forRoot(routes) 
   ],
   exports:[RouterModule],
   providers: [],
