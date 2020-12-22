@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleService } from './people.service';
 
 
 @Component({
@@ -15,7 +14,7 @@ export class AppComponent implements OnInit{
   today = new Date;
   money = 69;
   
-  constructor(private peopleServ:PeopleService){}
+  constructor(){}
   addCount=()=>{
     this.counter++;
   }
@@ -23,19 +22,7 @@ export class AppComponent implements OnInit{
     this.counter=this.counter+2;
   }
   ngOnInit(){
-    this.people = this.peopleServ.arrowpeople()
-    console.log("Instantiated");    
-    this.peopleServ.anObservable$.subscribe(
-      data=>{
-        console.log('From the Obser', data);
-        
-      },
-      error=>{
-        console.log("error");
-        
 
-      }
-    )
   }
 
   
