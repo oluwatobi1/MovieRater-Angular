@@ -2,28 +2,6 @@
 
 <h1 [ngStyle]="{'background-color':mycolor}">the count is {{counter}}</h1>
 
-<nav>
-    <a routerLink="first">First</a>
-    <br>
-    <a routerLink="second/09">Second</a>
-</nav>
-<hr>
-
-<hr>
-<!-- <input type="number" [(ngModel)]="counter"> -->
-
-<!-- 
-<div *ngIf="counter%2==0">
-    <h5>Even set</h5>
-</div>
- -->
-<!-- 
-<div *ngFor="let person of people">
-    <h2 [ngClass]="{'red':true}">
-        {{ person.name }} is here and is {{person.age}} years old
-    </h2>
-</div> -->
-
 
 <button (click)="addCount()"> add counter</button>
 <button (click)="add()"> Add X2</button>
