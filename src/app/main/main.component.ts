@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-main',
@@ -6,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  movie : any=[];
+  
 
-  constructor() { }
+  constructor(private apiService:ApiService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){    
+    this.apiService.getMovieList().subscribe(
+      data=>{
+        this.movie = data;
+        console.log(this.movie, 'data');
+        
+      }, 
+      error=> console.log(error)
+
+      
+    )
+    
   }
 
 }
