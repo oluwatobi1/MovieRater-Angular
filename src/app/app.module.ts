@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -23,7 +24,8 @@ const routes: Routes=[
     ReactiveFormsModule,
     AuthModule,
     MainModule,
-    RouterModule.forRoot(routes) 
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   exports:[RouterModule],
   providers: [ApiService],

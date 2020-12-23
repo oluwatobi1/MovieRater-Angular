@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http"
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  private films = ["Vikings", "Infinity Wars", "Django"]
+  baseURl = 'http://127.0.0.1:8000/api/movie/'
 
-  constructor() { }
+  constructor(
+    private httpClient:HttpClient
+  ) { }
 
   getMovieList(){
-    return this.films
+    return this.httpClient.get(this.baseURl)
   }
 }
