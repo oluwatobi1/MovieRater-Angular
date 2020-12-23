@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  @Input() currentMovie = []
+  @Input() currentMovie;
 
   constructor() { }
 
