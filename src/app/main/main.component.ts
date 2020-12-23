@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
 
 @Component({
@@ -23,8 +23,7 @@ export class MainComponent implements OnInit {
     )    
   }
   getSelectedMovie(movie){
-    this.selectMovie = movie
-    
+    this.selectMovie = movie    
   }
 
 }
