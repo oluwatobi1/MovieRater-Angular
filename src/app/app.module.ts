@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Routes, RouterModule } from '@angular/router';
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
+import { ApiService } from './api.service';
 
 const routes: Routes=[
   {path:'', pathMatch:'full', redirectTo:'movies'}
@@ -25,7 +26,7 @@ const routes: Routes=[
     RouterModule.forRoot(routes) 
   ],
   exports:[RouterModule],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

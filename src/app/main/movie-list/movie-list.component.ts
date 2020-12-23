@@ -7,9 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
 
+  movieList = [];
+
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(){
   }
 
 }
