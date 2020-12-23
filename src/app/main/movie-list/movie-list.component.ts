@@ -8,16 +8,16 @@ import { ApiService } from 'src/app/api.service';
 })
 export class MovieListComponent implements OnInit {
 
-  movieList = [];
+  movieList;
 
   constructor(private apiService:ApiService) { }
 
   ngOnInit(){
     this.apiService.getMovieList().subscribe(
       data=>{
-        console.log(data)
+        this.movieList = data;
       },
-      error=>console.log('error')
+      error=>console.log(error)
      
     )
     
