@@ -1,7 +1,7 @@
 <i></i>
 <div class="layout">
 
-    <app-movie-list [movies]="movie"></app-movie-list>
+    <app-movie-list [movies]="movie" (selectedMovie)="getSelectedMovie($event)"></app-movie-list>
 <app-movie-details></app-movie-details>
 
 </div>

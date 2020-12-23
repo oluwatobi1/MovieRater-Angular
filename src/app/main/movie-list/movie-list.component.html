@@ -1,5 +1,5 @@
 <h2>Movie List</h2>
 
-<div *ngFor="let movie of movies">
+<div *ngFor="let movie of movies" (click)="movieClicked(movie)">
    <h4> {{ movie.title}} </h4>
 </div>

@@ -8,7 +8,7 @@ import { ApiService } from '../api.service';
 })
 export class MainComponent implements OnInit {
   movie : any=[];
-  
+  selectMovie = null;
 
   constructor(private apiService:ApiService) { }
 
@@ -16,13 +16,14 @@ export class MainComponent implements OnInit {
     this.apiService.getMovieList().subscribe(
       data=>{
         this.movie = data;
-        console.log(this.movie, 'data');
         
       }, 
       error=> console.log(error)
-
       
-    )
+    )    
+  }
+  getSelectedMovie(movie){
+    this.selectMovie = movie
     
   }
 
