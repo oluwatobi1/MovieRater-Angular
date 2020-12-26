@@ -11,7 +11,7 @@ const routes: Routes=[
 
 @NgModule({
   declarations: [MainComponent, MovieListComponent, MovieDetailsComponent],
-  imports: [RouterModule.forChild(routes), CommonModule ],
+  imports: [RouterModule.forChild(routes), CommonModule, ],
   exports:[RouterModule]
 })
 export class MainModule { }
