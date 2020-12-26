@@ -4,6 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { CommonModule } from '@angular/common';
+import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
 
 const routes: Routes=[
   {path:'movies', component:MainComponent}
@@ -11,7 +14,13 @@ const routes: Routes=[
 
 @NgModule({
   declarations: [MainComponent, MovieListComponent, MovieDetailsComponent],
-  imports: [RouterModule.forChild(routes), CommonModule, ],
+  imports: [RouterModule.forChild(routes),
+     CommonModule,
+    FontAwesomeModule ],
   exports:[RouterModule]
 })
-export class MainModule { }
+export class MainModule {
+  constructor(library:FaIconLibrary){
+    library.addIcons(faStar,  fasStar,)
+  }
+ }

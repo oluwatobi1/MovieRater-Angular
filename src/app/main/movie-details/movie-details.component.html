@@ -4,4 +4,6 @@
    <h4>Title: {{ currentMovie.title }}</h4> 
    <p> description: {{ currentMovie.description }}</p> 
    Rating Stats: {{ currentMovie.no_of_rating }}   ( {{ currentMovie.avg_rating }})
+   <fa-icon icon="star"></fa-icon>
+   <fa-icon [icon]="['fas', 'star']"></fa-icon>    
 </div>
