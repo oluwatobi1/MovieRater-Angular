@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http"
+import { Movie } from './models/Movie';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ export class ApiService {
   ) { }
 
   getMovieList(){
-    return this.httpClient.get(this.baseURl, {headers:this.headers})
+    return this.httpClient.get<Movie[]>(this.baseURl, {headers:this.headers})
   }
 
   rateMovie(rate, movieid){
@@ -25,7 +26,7 @@ export class ApiService {
     return this.httpClient.post(`${this.baseURl}${movieid}/rate_movie/`, body, {headers:this.headers})
   }
 
-  getMovie(movieid){
-    return this.httpClient.get(`${this.baseURl}${movieid}`, {headers:this.headers})
+  getMovie(movieid:number){
+    return this.httpClient.get<Movie>(`${this.baseURl}${movieid}`, {headers:this.headers})
   }
 }

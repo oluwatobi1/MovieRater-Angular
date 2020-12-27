@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Movie } from 'src/app/models/Movie';
 
 @Component({
   selector: 'app-movie-list',
@@ -7,7 +8,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class MovieListComponent implements OnInit {
 
-  @Input() movies=[];
+  @Input() movies:Movie[]=[];
   @Output() selectedMovie = new EventEmitter()
 
 
@@ -16,7 +17,7 @@ export class MovieListComponent implements OnInit {
   ngOnInit(){    
   }
 
-  movieClicked(item){
+  movieClicked(item:Movie){
     this.selectedMovie.emit(item)    
   }
 

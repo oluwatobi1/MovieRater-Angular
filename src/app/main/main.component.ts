@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
+import { Movie } from '../models/Movie';
 
 @Component({
   selector: 'app-main',
@@ -7,14 +8,14 @@ import { ApiService } from '../api.service';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  movie : any=[];
+  movie : Movie[]=[];
   selectMovie = null;
 
   constructor(private apiService:ApiService) { }
 
   ngOnInit(){    
     this.apiService.getMovieList().subscribe(
-      data=>{
+      (data:Movie[])=>{
         this.movie = data;
         
       }, 
@@ -22,7 +23,7 @@ export class MainComponent implements OnInit {
       
     )    
   }
-  getSelectedMovie(movie){
+  getSelectedMovie(movie:Movie){
     this.selectMovie = movie    
   }
 
