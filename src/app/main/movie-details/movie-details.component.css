@@ -1,3 +1,17 @@
-.orange {
+fa-icon.orange {
     color: orange;
 }
+
+fa-icon.purple {
+    color: purple;
+}
+
+#ratediv fa-icon {
+    font-size: 2em;
+    cursor: pointer;
+}
+
+#ratediv  {
+    border-top: 2px;
+}
+
