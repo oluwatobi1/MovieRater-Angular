@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { ApiService } from 'src/app/api.service';
 export class MovieDetailsComponent implements OnInit {
 
   @Input() currentMovie;
+  @Output() updatedMovie = new EventEmitter();
 
   movieHovered = 0;
 
@@ -25,8 +26,15 @@ export class MovieDetailsComponent implements OnInit {
   rateClicked(rate){
     console.log(rate);
     this.apiService.rateMovie(rate, this.currentMovie.id).subscribe(
-      result =>{console.log(result)},
+      result =>this.updateMovieDetails(),
       error=>{console.log(error)} 
     )   
+  }
+  updateMovieDetails(){
+    this.apiService.getMovie(this.currentMovie.id).subscribe(
+      data =>this.updatedMovie.emit(data), 
+      error=> console.log(error)
+      
+    )
   }
 }

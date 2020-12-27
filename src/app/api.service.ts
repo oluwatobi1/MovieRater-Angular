@@ -24,4 +24,8 @@ export class ApiService {
     const body = JSON.stringify({'stars':rate})
     return this.httpClient.post(`${this.baseURl}${movieid}/rate_movie/`, body, {headers:this.headers})
   }
+
+  getMovie(movieid){
+    return this.httpClient.get(`${this.baseURl}${movieid}`, {headers:this.headers})
+  }
 }

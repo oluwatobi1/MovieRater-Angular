@@ -3,6 +3,6 @@
 
     <app-movie-list [movies]="movie" (selectedMovie)="getSelectedMovie($event)"></app-movie-list>
     
-<app-movie-details [currentMovie]="selectMovie"></app-movie-details>
+<app-movie-details [currentMovie]="selectMovie" (updatedMovie)="getSelectedMovie($event)"></app-movie-details>
 
 </div>
