@@ -7,13 +7,14 @@ import { CommonModule } from '@angular/common';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
+import { MovieFormComponent } from './movie-form/movie-form.component';
 
 const routes: Routes=[
   {path:'movies', component:MainComponent}
 ]
 
 @NgModule({
-  declarations: [MainComponent, MovieListComponent, MovieDetailsComponent],
+  declarations: [MainComponent, MovieListComponent, MovieDetailsComponent, MovieFormComponent],
   imports: [RouterModule.forChild(routes),
      CommonModule,
     FontAwesomeModule ],
