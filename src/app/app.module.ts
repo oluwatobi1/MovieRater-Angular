@@ -12,7 +12,7 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 
 const routes: Routes=[
-  {path:'', pathMatch:'full', redirectTo:'movies'}
+  {path:'', pathMatch:'full', redirectTo:'auth'}
 ];
 
 

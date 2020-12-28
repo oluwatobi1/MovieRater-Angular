@@ -1,2 +1,10 @@
-<p>auth works!</p>
 
+<form [formGroup]="authForm" (ngSubmit)="saveForm()">
+    <label for="username">Username</label>
+    <input type="text" name="username" formControlName="username">
+    <label for="password">Password</label>
+    <input type="password" name="password" formControlName="password">
+
+    <button type="submit">Login</button>
+
+</form>
