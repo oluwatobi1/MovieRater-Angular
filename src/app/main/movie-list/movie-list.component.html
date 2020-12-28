@@ -1,5 +1,8 @@
 <h2>Movie List</h2>
 
-<div *ngFor="let movie of movies" (click)="movieClicked(movie)">
-   <h4> {{ movie.title}} </h4>
+<div *ngFor="let movie of movies" class="movie-item">
+   <h4 (click)="movieClicked(movie)"> {{ movie.title}} </h4>
+   <fa-icon [icon]="['fas', 'edit']"></fa-icon>
+   <fa-icon [icon]="['fas', 'trash']"></fa-icon>
+
 </div>

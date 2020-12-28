@@ -5,7 +5,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { CommonModule } from '@angular/common';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import {  faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
 import { MovieFormComponent } from './movie-form/movie-form.component';
 
@@ -22,6 +22,6 @@ const routes: Routes=[
 })
 export class MainModule {
   constructor(library:FaIconLibrary){
-    library.addIcons(faStar,  fasStar,)
+    library.addIcons(faTrash,  fasStar, faEdit)
   }
  }

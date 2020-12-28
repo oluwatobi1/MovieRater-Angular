@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Movie } from '../models/Movie';
 
@@ -10,6 +10,7 @@ import { Movie } from '../models/Movie';
 export class MainComponent implements OnInit {
   movie : Movie[]=[];
   selectMovie = null;
+  EditMovie = 4;
 
   constructor(private apiService:ApiService) { }
 
