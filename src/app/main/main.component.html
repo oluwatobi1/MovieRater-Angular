@@ -7,9 +7,11 @@
                                     (deletedMovie)="deleteMovie($event)"></app-movie-list>
     <div>
         <app-movie-details [currentMovie]="selectMovie" (updatedMovie)="getSelectedMovie($event)"></app-movie-details>
+        
         <app-movie-form *ngIf="editedMovie" [movie]="this.editedMovie"
-                        (movieList)="updatedMovieList($event)"
-        ></app-movie-form>
+                                    (movieList)="updatedMovieList($event)"
+                                    (createdMovie)="createMovie($event)"
+                                    (updatedMovie)="updateMovie($event)"></app-movie-form>
     </div>
 
 

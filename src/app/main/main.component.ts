@@ -40,7 +40,9 @@ export class MainComponent implements OnInit {
     // delete selected movie here
     console.log(movie.title, "::::delete")
     this.apiService.deleteMovie(movie.id).subscribe(
-      data=>{console.log('deleted')},
+      data=>{
+        this.movie = this.movie.filter(mov=> mov.id!==movie.id)
+      },
       error=>console.log(error),
     )
 
@@ -48,6 +50,19 @@ export class MainComponent implements OnInit {
   }
   updatedMovieList(movie:Movie[]){
     this.movie = movie
+  }
+  createMovie(movie){
+    // add to movielist
+    this.movie.push(movie)
+    this.editMovie = null;
+  }
+  updateMovie(movie){
+    // update movie list
+    const movieIndex = this.movie.findIndex(mov=>mov.id === movie.id)
+    if (movieIndex>=0){
+      this.movie[movieIndex] = movie
+      this.editMovie = null;
+    }
   }
 
 }

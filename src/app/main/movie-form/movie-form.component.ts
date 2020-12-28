@@ -11,7 +11,8 @@ import { Movie } from 'src/app/models/Movie';
 })
 export class MovieFormComponent implements OnInit {
 
-  @Output() movieList = new EventEmitter();
+  @Output() createdMovie = new EventEmitter();
+  @Output() updatedMovie = new EventEmitter();
 
   movieForm;
   id: number;
@@ -37,12 +38,7 @@ export class MovieFormComponent implements OnInit {
     if (this.id) {
       this.apiService.updateMovie(this.id,this.movieForm.value.title, this.movieForm.value.description).subscribe(
         result => {
-          this.apiService.getMovieList().subscribe(
-            result => {
-              this.movieList.emit(result)
-            },
-            error => console.log(error, "on fetch")
-          )
+              this.updatedMovie.emit(result)           
         },
         error => console.log(error)
       )
@@ -50,12 +46,7 @@ export class MovieFormComponent implements OnInit {
 
       this.apiService.createMovie(this.movieForm.value.title, this.movieForm.value.description).subscribe(
         result => {
-          this.apiService.getMovieList().subscribe(
-            result => {
-              this.movieList.emit(result)
-            },
-            error => console.log(error, "on fetch")
-          )
+          this.createdMovie.emit(result)          
         },
         error => console.log(error)
       )
