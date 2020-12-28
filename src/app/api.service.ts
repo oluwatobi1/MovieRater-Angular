@@ -34,4 +34,13 @@ export class ApiService {
     const body = JSON.stringify({title:title, description:description})
     return this.httpClient.post(this.baseURl, body, {headers:this.headers})
   }
+
+  updateMovie(id:number, title:string, description){
+    const body = JSON.stringify({title, description})
+    return this.httpClient.put(`${this.baseURl}${id}/`, body, {headers:this.headers})
+  }
+
+  deleteMovie(id:number){
+    return this.httpClient.delete(`${this.baseURl}${id}/`, {headers:this.headers})
+  }
 }

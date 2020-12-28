@@ -11,36 +11,58 @@ import { Movie } from 'src/app/models/Movie';
 })
 export class MovieFormComponent implements OnInit {
 
-  @Output() movieList=new EventEmitter();
+  @Output() movieList = new EventEmitter();
 
   movieForm;
-  @Input() set movie(val:Movie){
-    this.movieForm = new FormGroup({
-      title: new FormControl(val.title),
-      description: new FormControl(val.description)
-    })
+  id: number;
+
+  @Input() set movie(val: Movie) {
+    this.id = val.id,
+      this.movieForm = new FormGroup({
+        title: new FormControl(val.title),
+        description: new FormControl(val.description)
+      })
   };
 
   constructor(
-    private apiService:ApiService
+    private apiService: ApiService
   ) { }
 
   ngOnInit(): void {
   }
 
-  saveForm(){
-    this.apiService.createMovie(this.movieForm.value.title, this.movieForm.value.description).subscribe(
-      result=>{        
-        this.apiService.getMovieList().subscribe(
-          result=>{
-            this.movieList.emit(result)
-          },
-          error=>console.log(error, "on fetch")
-          ,
-        )
-      },
-      error=>console.log(error)
-    )
+
+
+  saveForm() {
+    if (this.id) {
+      this.apiService.updateMovie(this.id,this.movieForm.value.title, this.movieForm.value.description).subscribe(
+        result => {
+          this.apiService.getMovieList().subscribe(
+            result => {
+              this.movieList.emit(result)
+            },
+            error => console.log(error, "on fetch")
+          )
+        },
+        error => console.log(error)
+      )
+    } else {
+
+      this.apiService.createMovie(this.movieForm.value.title, this.movieForm.value.description).subscribe(
+        result => {
+          this.apiService.getMovieList().subscribe(
+            result => {
+              this.movieList.emit(result)
+            },
+            error => console.log(error, "on fetch")
+          )
+        },
+        error => console.log(error)
+      )
+    }
+
+
+
   }
 
 }
