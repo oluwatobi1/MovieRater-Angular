@@ -40,5 +40,8 @@ export class MainComponent implements OnInit {
     // delete selected movie here
     console.log(movie.title, "::::delete")
   }
+  updatedMovieList(movie:Movie[]){
+    this.movie = movie
+  }
 
 }

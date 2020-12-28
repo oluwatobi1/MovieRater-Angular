@@ -29,4 +29,9 @@ export class ApiService {
   getMovie(movieid:number){
     return this.httpClient.get<Movie>(`${this.baseURl}${movieid}`, {headers:this.headers})
   }
+
+  createMovie(title:string, description:string){
+    const body = JSON.stringify({title:title, description:description})
+    return this.httpClient.post(this.baseURl, body, {headers:this.headers})
+  }
 }
