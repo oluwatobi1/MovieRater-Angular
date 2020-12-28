@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Movie } from 'src/app/models/Movie';
+
 
 @Component({
   selector: 'app-movie-form',
@@ -6,11 +9,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./movie-form.component.css']
 })
 export class MovieFormComponent implements OnInit {
-  @Input() movie;
+  @Input() movie:Movie;
+
+  movieForm = new FormGroup({
+    title: new FormControl(''),
+    description: new FormControl('')
+  })
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  saveForm(){
+    console.log(this.movieForm.value)
   }
 
 }

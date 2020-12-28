@@ -8,6 +8,7 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import {  faTrash, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { faStar as fasStar } from "@fortawesome/free-solid-svg-icons";
 import { MovieFormComponent } from './movie-form/movie-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes=[
   {path:'movies', component:MainComponent}
@@ -17,6 +18,7 @@ const routes: Routes=[
   declarations: [MainComponent, MovieListComponent, MovieDetailsComponent, MovieFormComponent],
   imports: [RouterModule.forChild(routes),
      CommonModule,
+     ReactiveFormsModule,
     FontAwesomeModule ],
   exports:[RouterModule]
 })
