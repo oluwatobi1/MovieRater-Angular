@@ -54,14 +54,14 @@ export class MainComponent implements OnInit {
   createMovie(movie){
     // add to movielist
     this.movie.push(movie)
-    this.editMovie = null;
+    this.editedMovie = null;
   }
   updateMovie(movie){
     // update movie list
     const movieIndex = this.movie.findIndex(mov=>mov.id === movie.id)
     if (movieIndex>=0){
       this.movie[movieIndex] = movie
-      this.editMovie = null;
+      this.editedMovie = null;
     }
   }
 
