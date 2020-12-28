@@ -4,7 +4,7 @@
     <app-movie-list [movies]="movie" (selectedMovie)="getSelectedMovie($event)"></app-movie-list>
     <div>
         <app-movie-details [currentMovie]="selectMovie" (updatedMovie)="getSelectedMovie($event)"></app-movie-details>
-        <app-movie-form *ngIf="EditMovie"></app-movie-form>
+        <app-movie-form *ngIf="editMovie"></app-movie-form>
     </div>
 
 

@@ -10,7 +10,7 @@ import { Movie } from '../models/Movie';
 export class MainComponent implements OnInit {
   movie : Movie[]=[];
   selectMovie = null;
-  EditMovie = 4;
+  editMovie = null;
 
   constructor(private apiService:ApiService) { }
 
