@@ -10,7 +10,7 @@ import { Movie } from '../models/Movie';
 export class MainComponent implements OnInit {
   movie : Movie[]=[];
   selectMovie = null;
-  editMovie = null;
+  editedMovie = null;
 
   constructor(private apiService:ApiService) { }
 
@@ -25,7 +25,20 @@ export class MainComponent implements OnInit {
     )    
   }
   getSelectedMovie(movie:Movie){
-    this.selectMovie = movie    
+    this.selectMovie = movie  
+    this.editedMovie = null  
+  }
+  editMovie(movie:Movie){
+      this.editedMovie = movie
+      this.selectMovie = null
+  }
+  newMovie(){
+    this.editedMovie = {title:'', description:''}
+      this.selectMovie = null
+  }
+  deleteMovie(movie:Movie){
+    // delete selected movie here
+    console.log(movie.title, "::::delete")
   }
 
 }

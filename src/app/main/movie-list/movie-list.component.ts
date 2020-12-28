@@ -10,6 +10,9 @@ export class MovieListComponent implements OnInit {
 
   @Input() movies:Movie[]=[];
   @Output() selectedMovie = new EventEmitter()
+  @Output() editedMovie = new EventEmitter()
+  @Output() createNewMovie = new EventEmitter()
+  @Output() deletedMovie = new EventEmitter()
 
 
   constructor() { }
@@ -19,6 +22,15 @@ export class MovieListComponent implements OnInit {
 
   movieClicked(item:Movie){
     this.selectedMovie.emit(item)    
+  }
+  editMovie(movie:Movie){
+    this.editedMovie.emit(movie)    
+  }
+  newMovie(){
+    this.createNewMovie.emit()
+  }
+  deleteMovie(movie:Movie){
+    this.deletedMovie.emit(movie)
   }
 
 }
