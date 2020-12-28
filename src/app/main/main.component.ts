@@ -8,58 +8,56 @@ import { Movie } from '../models/Movie';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  movie : Movie[]=[];
+  movie: Movie[] = [];
   selectMovie = null;
   editedMovie = null;
 
-  constructor(private apiService:ApiService) { }
+  constructor(private apiService: ApiService) { }
 
-  ngOnInit(){    
+  ngOnInit() {
     this.apiService.getMovieList().subscribe(
-      (data:Movie[])=>{
+      (data: Movie[]) => {
         this.movie = data;
-        
-      }, 
-      error=> console.log(error)
-      
-    )    
+
+      },
+      error => console.log(error)
+
+    )
   }
-  getSelectedMovie(movie:Movie){
-    this.selectMovie = movie  
-    this.editedMovie = null  
+  getSelectedMovie(movie: Movie) {
+    this.selectMovie = movie
+    this.editedMovie = null
   }
-  editMovie(movie:Movie){
-      this.editedMovie = movie
-      this.selectMovie = null
+  editMovie(movie: Movie) {
+    this.editedMovie = movie
+    this.selectMovie = null
   }
-  newMovie(){
-    this.editedMovie = {title:'', description:''}
-      this.selectMovie = null
+  newMovie() {
+    this.editedMovie = { title: '', description: '' }
+    this.selectMovie = null
   }
-  deleteMovie(movie:Movie){
+  deleteMovie(movie: Movie) {
     // delete selected movie here
     console.log(movie.title, "::::delete")
     this.apiService.deleteMovie(movie.id).subscribe(
-      data=>{
-        this.movie = this.movie.filter(mov=> mov.id!==movie.id)
+      data => {
+        this.movie = this.movie.filter(mov => mov.id !== movie.id)
       },
-      error=>console.log(error),
+      error => console.log(error),
     )
-
-
   }
-  updatedMovieList(movie:Movie[]){
+  updatedMovieList(movie: Movie[]) {
     this.movie = movie
   }
-  createMovie(movie){
+  createMovie(movie) {
     // add to movielist
     this.movie.push(movie)
     this.editedMovie = null;
   }
-  updateMovie(movie){
+  updateMovie(movie) {
     // update movie list
-    const movieIndex = this.movie.findIndex(mov=>mov.id === movie.id)
-    if (movieIndex>=0){
+    const movieIndex = this.movie.findIndex(mov => mov.id === movie.id)
+    if (movieIndex >= 0) {
       this.movie[movieIndex] = movie
       this.editedMovie = null;
     }

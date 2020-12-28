@@ -9,33 +9,33 @@ import { Movie } from 'src/app/models/Movie';
 })
 export class MovieDetailsComponent implements OnInit {
 
-  @Input() currentMovie:Movie;
+  @Input() currentMovie: Movie;
   @Output() updatedMovie = new EventEmitter();
 
-  movieHovered:number = 0;
+  movieHovered: number = 0;
 
   constructor(
     private apiService: ApiService
   ) { }
 
-  ngOnInit(){
+  ngOnInit() {
   }
-  movieHover(rate:number){
+  movieHover(rate: number) {
     this.movieHovered = rate;
   }
 
-  rateClicked(rate:number){
+  rateClicked(rate: number) {
     console.log(rate);
     this.apiService.rateMovie(rate, this.currentMovie.id).subscribe(
-      result=>this.updateMovieDetails(),
-      error=>{console.log(error)} 
-    )   
+      result => this.updateMovieDetails(),
+      error => { console.log(error) }
+    )
   }
-  updateMovieDetails(){
+  updateMovieDetails() {
     this.apiService.getMovie(this.currentMovie.id).subscribe(
-      (data:Movie) =>this.updatedMovie.emit(data), 
-      error=> console.log(error)
-      
+      (data: Movie) => this.updatedMovie.emit(data),
+      error => console.log(error)
+
     )
   }
 }

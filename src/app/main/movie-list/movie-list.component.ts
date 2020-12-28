@@ -8,7 +8,7 @@ import { Movie } from 'src/app/models/Movie';
 })
 export class MovieListComponent implements OnInit {
 
-  @Input() movies:Movie[]=[];
+  @Input() movies: Movie[] = [];
   @Output() selectedMovie = new EventEmitter()
   @Output() editedMovie = new EventEmitter()
   @Output() createNewMovie = new EventEmitter()
@@ -17,19 +17,19 @@ export class MovieListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(){    
+  ngOnInit() {
   }
 
-  movieClicked(item:Movie){
-    this.selectedMovie.emit(item)    
+  movieClicked(item: Movie) {
+    this.selectedMovie.emit(item)
   }
-  editMovie(movie:Movie){
-    this.editedMovie.emit(movie)    
+  editMovie(movie: Movie) {
+    this.editedMovie.emit(movie)
   }
-  newMovie(){
+  newMovie() {
     this.createNewMovie.emit()
   }
-  deleteMovie(movie:Movie){
+  deleteMovie(movie: Movie) {
     this.deletedMovie.emit(movie)
   }
 

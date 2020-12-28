@@ -14,33 +14,33 @@ export class ApiService {
   })
 
   constructor(
-    private httpClient:HttpClient
+    private httpClient: HttpClient
   ) { }
 
-  getMovieList(){
-    return this.httpClient.get<Movie[]>(this.baseURl, {headers:this.headers})
+  getMovieList() {
+    return this.httpClient.get<Movie[]>(this.baseURl, { headers: this.headers })
   }
 
-  rateMovie(rate, movieid){
-    const body = JSON.stringify({'stars':rate})
-    return this.httpClient.post(`${this.baseURl}${movieid}/rate_movie/`, body, {headers:this.headers})
+  rateMovie(rate, movieid) {
+    const body = JSON.stringify({ 'stars': rate })
+    return this.httpClient.post(`${this.baseURl}${movieid}/rate_movie/`, body, { headers: this.headers })
   }
 
-  getMovie(movieid:number){
-    return this.httpClient.get<Movie>(`${this.baseURl}${movieid}`, {headers:this.headers})
+  getMovie(movieid: number) {
+    return this.httpClient.get<Movie>(`${this.baseURl}${movieid}`, { headers: this.headers })
   }
 
-  createMovie(title:string, description:string){
-    const body = JSON.stringify({title:title, description:description})
-    return this.httpClient.post(this.baseURl, body, {headers:this.headers})
+  createMovie(title: string, description: string) {
+    const body = JSON.stringify({ title: title, description: description })
+    return this.httpClient.post(this.baseURl, body, { headers: this.headers })
   }
 
-  updateMovie(id:number, title:string, description){
-    const body = JSON.stringify({title, description})
-    return this.httpClient.put(`${this.baseURl}${id}/`, body, {headers:this.headers})
+  updateMovie(id: number, title: string, description) {
+    const body = JSON.stringify({ title, description })
+    return this.httpClient.put(`${this.baseURl}${id}/`, body, { headers: this.headers })
   }
 
-  deleteMovie(id:number){
-    return this.httpClient.delete(`${this.baseURl}${id}/`, {headers:this.headers})
+  deleteMovie(id: number) {
+    return this.httpClient.delete(`${this.baseURl}${id}/`, { headers: this.headers })
   }
 }

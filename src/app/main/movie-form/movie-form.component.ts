@@ -36,9 +36,9 @@ export class MovieFormComponent implements OnInit {
 
   saveForm() {
     if (this.id) {
-      this.apiService.updateMovie(this.id,this.movieForm.value.title, this.movieForm.value.description).subscribe(
+      this.apiService.updateMovie(this.id, this.movieForm.value.title, this.movieForm.value.description).subscribe(
         result => {
-              this.updatedMovie.emit(result)           
+          this.updatedMovie.emit(result)
         },
         error => console.log(error)
       )
@@ -46,7 +46,7 @@ export class MovieFormComponent implements OnInit {
 
       this.apiService.createMovie(this.movieForm.value.title, this.movieForm.value.description).subscribe(
         result => {
-          this.createdMovie.emit(result)          
+          this.createdMovie.emit(result)
         },
         error => console.log(error)
       )
