@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../api.service';
 
@@ -21,14 +22,20 @@ export class AuthComponent implements OnInit {
 
   constructor(
     private apiService:ApiService,
-    private cookieService:CookieService
+    private cookieService:CookieService,
+    private router:Router
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    const token = this.cookieService.get('mr-token')
+    if (token){
+      this.router.navigate(["movies/"])
+    }
   }
   saveForm(){
     this.apiService.loginUser(this.authForm.value).subscribe(
-      (result:TokenObj)=>{this.cookieService.set("mr-cookie", result.token)},
+      (result:TokenObj)=>{this.cookieService.set("mr-token", result.token)
+      this.router.navigate(["movies/"])},
       error=>console.log(error)
     )
   }

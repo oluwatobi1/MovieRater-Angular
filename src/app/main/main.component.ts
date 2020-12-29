@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../api.service';
 import { Movie } from '../models/Movie';
 
@@ -12,18 +14,28 @@ export class MainComponent implements OnInit {
   selectMovie = null;
   editedMovie = null;
 
-  constructor(private apiService: ApiService) { }
+  constructor(
+    private apiService: ApiService,
+    private cookieService:CookieService,
+    private router:Router
+    ) { }
 
   ngOnInit() {
-    this.apiService.getMovieList().subscribe(
-      (data: Movie[]) => {
-        this.movie = data;
+    const token = this.cookieService.get('mr-token')
+    if (!token){
+        this.router.navigate(['auth/'])
+    } else {
+      this.apiService.getMovieList().subscribe(
+        (data: Movie[]) => {
+          this.movie = data;  
+        },
+        error => console.log(error)
+  
+      )
+  
+    }
 
-      },
-      error => console.log(error)
-
-    )
-  }
+      }
   getSelectedMovie(movie: Movie) {
     this.selectMovie = movie
     this.editedMovie = null
