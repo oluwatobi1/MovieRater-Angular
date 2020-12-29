@@ -10,6 +10,7 @@ import { MainModule } from './main/main.module';
 import { ApiService } from './api.service';
 import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
+import { CookieService } from 'ngx-cookie-service';
 
 const routes: Routes=[
   {path:'', pathMatch:'full', redirectTo:'auth'}
@@ -31,7 +32,8 @@ const routes: Routes=[
     FontAwesomeModule
   ],
   exports:[RouterModule],
-  providers: [ApiService],
+  providers: [ApiService,
+     CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
