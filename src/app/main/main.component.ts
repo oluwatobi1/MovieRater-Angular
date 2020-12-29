@@ -16,40 +16,41 @@ export class MainComponent implements OnInit {
 
   constructor(
     private apiService: ApiService,
-    private cookieService:CookieService,
-    private router:Router
-    ) { }
+    private cookieService: CookieService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     const token = this.cookieService.get('mr-token')
-    if (!token){
-        this.router.navigate(['auth/'])
+    if (!token) {
+      this.router.navigate(['auth/'])
     } else {
       this.apiService.getMovieList().subscribe(
         (data: Movie[]) => {
-          this.movie = data;  
+          this.movie = data;
         },
         error => console.log(error)
-  
       )
-  
     }
+  }
 
-      }
+
   getSelectedMovie(movie: Movie) {
     this.selectMovie = movie
     this.editedMovie = null
   }
+
   editMovie(movie: Movie) {
     this.editedMovie = movie
     this.selectMovie = null
   }
+
   newMovie() {
     this.editedMovie = { title: '', description: '' }
     this.selectMovie = null
   }
+
   deleteMovie(movie: Movie) {
-    // delete selected movie here
     console.log(movie.title, "::::delete")
     this.apiService.deleteMovie(movie.id).subscribe(
       data => {
@@ -58,14 +59,17 @@ export class MainComponent implements OnInit {
       error => console.log(error),
     )
   }
+
   updatedMovieList(movie: Movie[]) {
     this.movie = movie
   }
+
   createMovie(movie) {
     // add to movielist
     this.movie.push(movie)
     this.editedMovie = null;
   }
+
   updateMovie(movie) {
     // update movie list
     const movieIndex = this.movie.findIndex(mov => mov.id === movie.id)
@@ -73,6 +77,11 @@ export class MainComponent implements OnInit {
       this.movie[movieIndex] = movie
       this.editedMovie = null;
     }
+  }
+
+  userLogout = () =>{
+    this.cookieService.delete('mr-token')
+    this.router.navigate(['auth/'])
   }
 
 }
