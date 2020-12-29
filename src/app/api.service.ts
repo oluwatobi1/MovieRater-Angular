@@ -16,28 +16,33 @@ export class ApiService {
   })
 
   constructor(
-
     private httpClient: HttpClient,
-    private cookieService:CookieService
+    private cookieService: CookieService
   ) { }
 
+
   getMovieList() {
-    return this.httpClient.get<Movie[]>(this.baseMovieUrl, { headers: this.getAuthHeaders()})
+    return this.httpClient.get<Movie[]>(this.baseMovieUrl, { headers: this.getAuthHeaders() })
   }
+
 
   rateMovie(rate, movieid) {
     const body = JSON.stringify({ 'stars': rate })
     return this.httpClient.post(`${this.baseMovieUrl}${movieid}/rate_movie/`, body, { headers: this.getAuthHeaders() })
   }
 
+
+
   getMovie(movieid: number) {
     return this.httpClient.get<Movie>(`${this.baseMovieUrl}${movieid}`, { headers: this.getAuthHeaders() })
   }
+
 
   createMovie(title: string, description: string) {
     const body = JSON.stringify({ title: title, description: description })
     return this.httpClient.post(this.baseMovieUrl, body, { headers: this.getAuthHeaders() })
   }
+
 
   updateMovie(id: number, title: string, description) {
     const body = JSON.stringify({ title, description })
@@ -47,17 +52,23 @@ export class ApiService {
   deleteMovie(id: number) {
     return this.httpClient.delete(`${this.baseMovieUrl}${id}/`, { headers: this.getAuthHeaders() })
   }
-  loginUser(Userdata){
-    const body=JSON.stringify(Userdata)
-    return this.httpClient.post(`${this.baseURl}auth/`, body, {headers:this.headers})
-  }
-  registerUser(Userdata){
+
+
+  loginUser(Userdata) {
     const body = JSON.stringify(Userdata)
-    return this.httpClient.post(`${this.baseURl}api/user/`, body, {headers:this.headers})
+    return this.httpClient.post(`${this.baseURl}auth/`, body, { headers: this.headers })
   }
-  getAuthHeaders(){
+
+
+  registerUser(Userdata) {
+    const body = JSON.stringify(Userdata)
+    return this.httpClient.post(`${this.baseURl}api/user/`, body, { headers: this.headers })
+  }
+
+
+  getAuthHeaders() {
     return new HttpHeaders({
-      'Content-Type':'application/json',
+      'Content-Type': 'application/json',
       Authorization: `Token ${this.cookieService.get('mr-token')}`
     })
   }

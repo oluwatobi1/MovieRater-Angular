@@ -12,12 +12,12 @@ import { FaIconLibrary, FontAwesomeModule } from '@fortawesome/angular-fontaweso
 import { faFilm } from '@fortawesome/free-solid-svg-icons';
 import { CookieService } from 'ngx-cookie-service';
 
-const routes: Routes=[
-  {path:'', pathMatch:'full', redirectTo:'auth'}
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'auth' }
 ];
 
 
-@NgModule({ 
+@NgModule({
   declarations: [
     AppComponent,
   ],
@@ -31,15 +31,14 @@ const routes: Routes=[
     HttpClientModule,
     FontAwesomeModule
   ],
-  exports:[RouterModule],
+  exports: [RouterModule],
   providers: [ApiService,
-     CookieService],
+    CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(library:FaIconLibrary){
+  constructor(library: FaIconLibrary) {
     library.addIcons(faFilm)
   }
+}
 
-  }
- 

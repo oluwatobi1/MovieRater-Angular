@@ -1,26 +1,20 @@
-
 <div *ngIf="currentMovie">
     <h3>Movie-details </h3>
-   <h4>Title: {{ currentMovie.title }}</h4> 
-   <p> description: {{ currentMovie.description }}</p> 
-   Rating Stats: {{ currentMovie.no_of_rating }}   ( {{ currentMovie.avg_rating }})
-   <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>0}"></fa-icon>  
-   <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>1}"></fa-icon>
-   <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>2}"></fa-icon>  
-   <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>3}"></fa-icon>
-   <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>4}"></fa-icon>
+    <h4>Title: {{ currentMovie.title }}</h4>
+    <p> description: {{ currentMovie.description }}</p>
+    Rating Stats: {{ currentMovie.no_of_rating }} ( {{ currentMovie.avg_rating }})
+    <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>0}"></fa-icon>
+    <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>1}"></fa-icon>
+    <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>2}"></fa-icon>
+    <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>3}"></fa-icon>
+    <fa-icon [icon]="['fas', 'star']" [ngClass]="{'orange': currentMovie.avg_rating>4}"></fa-icon>
 
 
-   <div id="ratediv">
-    <h2>Rate me !!!</h2>
-    <fa-icon [icon]="['fas', 'star']" *ngFor="let rate of [1,2,3,4,5]"
-    (mouseenter)="movieHover(rate)"
-    [ngClass]="{'purple':movieHovered>=rate}"
-    (mouseleave)="movieHovered = 0"
-    (click)="rateClicked(rate)"></fa-icon>
-
-</div>
+    <div id="ratediv">
+        <h2>Rate me !!!</h2>
+        <fa-icon [icon]="['fas', 'star']" *ngFor="let rate of [1,2,3,4,5]" (mouseenter)="movieHover(rate)"
+            [ngClass]="{'purple':movieHovered>=rate}" (mouseleave)="movieHovered = 0" (click)="rateClicked(rate)">
+        </fa-icon>
+    </div>
 
 </div>
-
-

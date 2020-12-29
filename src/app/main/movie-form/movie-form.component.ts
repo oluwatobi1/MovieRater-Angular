@@ -31,16 +31,15 @@ export class MovieFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  formDisable(){
+
+  formDisable() {
     if (this.movieForm.value.title.length &&
-      this.movieForm.value.description.length){
-        return false
-      }else{
-        return true
-      }
+      this.movieForm.value.description.length) {
+      return false
+    } else {
+      return true
+    }
   }
-
-
 
   saveForm() {
     if (this.id) {
@@ -59,9 +58,5 @@ export class MovieFormComponent implements OnInit {
         error => console.log(error)
       )
     }
-
-
-
   }
-
 }

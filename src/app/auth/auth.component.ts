@@ -15,13 +15,13 @@ interface TokenObj{
 })
 export class AuthComponent implements OnInit {
 
+
   authForm = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
   })
   registerMode = false;
-
- 
+  
 
   constructor(
     private apiService:ApiService,
@@ -35,12 +35,13 @@ export class AuthComponent implements OnInit {
       this.router.navigate(["movies/"])
     }
   }
+
+
   saveForm(){
     if (!this.registerMode){
       this.loginUser()
     }
-    else{
-      
+    else{      
       this.apiService.registerUser(this.authForm.value).subscribe(
         result=>{
           // Login user after register
@@ -48,9 +49,10 @@ export class AuthComponent implements OnInit {
         },
         error=>console.log(error),
       )
-    }
-    
+    }    
   }
+
+  
   loginUser(){
     this.apiService.loginUser(this.authForm.value).subscribe(
       (result:TokenObj)=>{this.cookieService.set("mr-token", result.token)

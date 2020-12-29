@@ -1,20 +1,16 @@
-
 <button (click)="userLogout()">Log out </button>
 
 <div class="layout">
+    <app-movie-list [movies]="movie" (selectedMovie)="getSelectedMovie($event)" (editedMovie)="editMovie($event)"
+        (createNewMovie)="newMovie()" (deletedMovie)="deleteMovie($event)">
+    </app-movie-list>
 
-    <app-movie-list [movies]="movie" (selectedMovie)="getSelectedMovie($event)" 
-                                    (editedMovie)="editMovie($event)"
-                                    (createNewMovie)="newMovie()" 
-                                    (deletedMovie)="deleteMovie($event)"></app-movie-list>
     <div>
-        <app-movie-details [currentMovie]="selectMovie" (updatedMovie)="getSelectedMovie($event)"></app-movie-details>
-        
-        <app-movie-form *ngIf="editedMovie" [movie]="this.editedMovie"
-                                    (movieList)="updatedMovieList($event)"
-                                    (createdMovie)="createMovie($event)"
-                                    (updatedMovie)="updateMovie($event)"></app-movie-form>
+        <app-movie-details [currentMovie]="selectMovie" (updatedMovie)="getSelectedMovie($event)">
+        </app-movie-details>
+
+        <app-movie-form *ngIf="editedMovie" [movie]="this.editedMovie" (movieList)="updatedMovieList($event)"
+            (createdMovie)="createMovie($event)" (updatedMovie)="updateMovie($event)">
+        </app-movie-form>
     </div>
-
-
 </div>

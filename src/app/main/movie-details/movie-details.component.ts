@@ -20,9 +20,12 @@ export class MovieDetailsComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  
   movieHover(rate: number) {
     this.movieHovered = rate;
   }
+
 
   rateClicked(rate: number) {
     console.log(rate);
@@ -31,6 +34,8 @@ export class MovieDetailsComponent implements OnInit {
       error => { console.log(error) }
     )
   }
+
+
   updateMovieDetails() {
     this.apiService.getMovie(this.currentMovie.id).subscribe(
       (data: Movie) => this.updatedMovie.emit(data),

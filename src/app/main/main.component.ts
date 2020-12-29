@@ -9,6 +9,7 @@ import { Movie } from '../models/Movie';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
+
 export class MainComponent implements OnInit {
   movie: Movie[] = [];
   selectMovie = null;
@@ -40,15 +41,18 @@ export class MainComponent implements OnInit {
     this.editedMovie = null
   }
 
+
   editMovie(movie: Movie) {
     this.editedMovie = movie
     this.selectMovie = null
   }
 
+
   newMovie() {
     this.editedMovie = { title: '', description: '' }
     this.selectMovie = null
   }
+
 
   deleteMovie(movie: Movie) {
     console.log(movie.title, "::::delete")
@@ -60,15 +64,18 @@ export class MainComponent implements OnInit {
     )
   }
 
+
   updatedMovieList(movie: Movie[]) {
     this.movie = movie
   }
+
 
   createMovie(movie) {
     // add to movielist
     this.movie.push(movie)
     this.editedMovie = null;
   }
+
 
   updateMovie(movie) {
     // update movie list
@@ -79,9 +86,9 @@ export class MainComponent implements OnInit {
     }
   }
 
-  userLogout = () =>{
+
+  userLogout = () => {
     this.cookieService.delete('mr-token')
     this.router.navigate(['auth/'])
   }
-
 }
