@@ -51,6 +51,10 @@ export class ApiService {
     const body=JSON.stringify(Userdata)
     return this.httpClient.post(`${this.baseURl}auth/`, body, {headers:this.headers})
   }
+  registerUser(Userdata){
+    const body = JSON.stringify(Userdata)
+    return this.httpClient.post(`${this.baseURl}api/user/`, body, {headers:this.headers})
+  }
   getAuthHeaders(){
     return new HttpHeaders({
       'Content-Type':'application/json',
