@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from "@angular/common/http"
 import { Movie } from './models/Movie';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  baseURl = 'http://127.0.0.1:8000/'
+  baseURl = environment.apiUrl
   baseMovieUrl = `${this.baseURl}api/movie/`
 
   headers = new HttpHeaders({
