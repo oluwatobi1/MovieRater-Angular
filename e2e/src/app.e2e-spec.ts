@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, by, element, logging } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -12,9 +12,16 @@ describe('workspace-project App', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('Movie Rater');
   });
-  // it('should be able to login', () =>{
-  //   const usernameField = browser.driver.findElement(by.id('username'))
-  // })
+  it('should be able to login', () =>{
+    const usernameField = browser.driver.findElement(by.id('username'))
+    usernameField.sendKeys('movieraterproject')
+    const passwordField = browser.driver.findElement(by.id("password"))
+    passwordField.sendKeys("movieraterproject")
+    browser.driver.findElement(by.id("submit")).click()
+
+    const ele = element(by.id('logoutBtn'))
+    browser.wait(ec.presenceOf(ele), 3000)
+  })
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
