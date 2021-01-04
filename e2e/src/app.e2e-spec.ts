@@ -10,8 +10,11 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('AngularTemplate app is running!');
+    expect(page.getTitleText()).toEqual('Movie Rater');
   });
+  // it('should be able to login', () =>{
+  //   const usernameField = browser.driver.findElement(by.id('username'))
+  // })
 
   afterEach(async () => {
     // Assert that there are no errors emitted from the browser
