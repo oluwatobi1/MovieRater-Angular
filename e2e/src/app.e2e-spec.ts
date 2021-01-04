@@ -1,8 +1,9 @@
 import { AppPage } from './app.po';
-import { browser, by, element, logging } from 'protractor';
+import { browser, by, element, logging, protractor } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
+  const ec = protractor.ExpectedConditions;
 
   beforeEach(() => {
     page = new AppPage();
@@ -10,8 +11,9 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Movie Rater');
+    expect(page.getTitleText()).toEqual('AngularTemplate');
   });
+
   it('should be able to login', () =>{
     const usernameField = browser.driver.findElement(by.id('username'))
     usernameField.sendKeys('movieraterproject')
